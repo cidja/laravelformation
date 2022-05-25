@@ -23,6 +23,6 @@ class PostController extends Controller
     }
     public function test()
     {
-        return 'hello world';
+        return view('helloWorld');
     }
 }

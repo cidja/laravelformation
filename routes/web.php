@@ -20,4 +20,4 @@ Route::get('/', function () {
  */
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');
-Route::get('/test', [PostController::class, 'test']);
+Route::get('/test', [PostController::class, 'test'])->name('test');
