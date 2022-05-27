@@ -3,5 +3,5 @@
 
 {{-- section sert à mettre uniquement ce quil est différent du yield('content') --}}
 @section('content')
-<h1>{{ $post }}</h1>
+<h1>{{ $post->content }}</h1>
 @endsection
