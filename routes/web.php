@@ -13,11 +13,32 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* 
-Route::get('/', function () {
+
+/* Route::get('/', function () {
     return view('welcome');
-});
- */
-Route::get('/', [PostController::class, 'index'])->name('index');
+}); */
+Route::get('/', [PostController::class, 'index'])->name('welcome');
+Route::get('/posts/{id}', [PostController::class, 'show'])->whereNumber('id'); //permet de vérifier si bien un nombre
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');
-Route::get('/test', [PostController::class, 'test'])->name('test');
+
+
+//Route::get('article', [PostController::class, 'article']);
+//on peut aussi écrire 
+//Route::get('article', 'App\Http\Controllers\PostController@article');
+
+
+
+
+
+
+/* 
+Route::get('/hello', function() {
+    return response()->json([
+        'title' => 'mon super titre',
+        'description' => 'Ma super description'
+    ]);
+});
+
+Route::get('/article', function() {
+        return view('article');
+}); */
