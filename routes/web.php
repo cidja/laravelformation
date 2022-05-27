@@ -18,7 +18,7 @@ use App\Http\Controllers\PostController;
     return view('welcome');
 }); */
 Route::get('/', [PostController::class, 'index'])->name('welcome');
-Route::get('/posts/{id}', [PostController::class, 'show'])->whereNumber('id'); //permet de vérifier si bien un nombre
+Route::get('/article/{id}', [PostController::class, 'show'])->whereNumber('id')->name('article'); //permet de vérifier si bien un nombre
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');
 
 
