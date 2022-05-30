@@ -10,29 +10,39 @@ class PostController extends Controller
     public function index()
     {
         {
+           
             //on utilise un model avec eloquent maintenant le 27.5.22
-                $posts = Post::all();
+                $posts = Post::orderBy('title')->get(); //pour les ranger par ordre bien METTRE LE get() à la fin source: https://laravel.com/docs/9.x/eloquent#retrieving-models
                 //pour voir ce que nous retourne $posts
                 //dd($posts);
+            //pour update des données source: https://laravel.com/docs/9.x/eloquent#retrieving-models
+              /*  $posts = Post::find(1)->update([
+                   'title'  => 'Mon premier post modifié'
+               ]);
+                
+               
+                suppression de l'id 12 par exemple
+                $douze = Post::where('id',12)->delete(); 
+                
 
-
-            //le plus souvent ce sera des tableaux en variables
-               /*  $posts = [
+            le plus souvent ce sera des tableaux en variables
+                 $posts = [
                     "mon premier titre","mon second titre"
-                ]; */
-                // $title= "mon super titre";
-                //$title2 = "mon super second titre";
-                //on peut passer les arguments par compact 
-                //return view('article', compact('title'));
+                ]; 
+                $title= "mon super titre";
+                $title2 = "mon super second titre";
+                on peut passer les arguments par compact 
+                return view('article', compact('title'));
         
-                //on peut passer les arguments avec with 
-                //return view('article')->with('title', $title);
+                on peut passer les arguments avec with 
+                return view('article')->with('title', $title);
         
-                //on peut passer les arguments avec un array
-                /* return view('article', [
+                on peut passer les arguments avec un array
+                 return view('article', [
                     'title'     => $title,
                     'title2'    => $title2
-                ]); */
+                ]); 
+                */
                 return view('articles', compact('posts'));
             }
     }
