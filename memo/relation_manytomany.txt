@@ -1,0 +1,20 @@
+utiliser pour les tag par exemple on crée une table Pivot 
+Normalisation de la création d'une table pivot 
+post_tag (au signulier et premier dans l'ordre alphabétique etc...)
+
+1 : php artisan make:model Tag -m
+    on rajoute juste un champ name 
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+2 : création de la table pivot 
+    php artisan make:migration create_pivot_table_post_tag
+    dans database/migration 
+        Schema::create('pivot_table_post_tag', function (Blueprint $table) 
+            on supprime
+         Schema::create('post_tag', function (Blueprint $table) 
+
+

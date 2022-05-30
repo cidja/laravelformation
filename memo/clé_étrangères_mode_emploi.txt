@@ -1,0 +1,16 @@
+1 : php artisan make:model Comment -m (pour créer aussi la migration)
+
+2 : /database/migrations/2022_05_30_100755_create_comments_table.php
+    création schema avec clé étrangère
+
+3 : app/models/Post.php
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+4 : app/models/Comment.php  
+    public function post()
+    {
+        return $this->belongsTo(Post::class); // ne pas oublier d'importer les classes dans l'en tête
+    }

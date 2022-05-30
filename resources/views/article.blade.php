@@ -12,5 +12,11 @@
     @empty
     <div>Aucun commentaire pour ce post</div>
     @endforelse
-
+    <hr>
+    @forelse ($post->tags as $tag )
+            <span> {{ $tag->name }} </span>
+    @empty
+        <div>Aucun tag pour cet article</div>
+    @endforelse 
+        
 @endsection

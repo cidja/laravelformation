@@ -12,7 +12,7 @@ class PostController extends Controller
         {
            
             //on utilise un model avec eloquent maintenant le 27.5.22
-                $posts = Post::orderBy('title')->get(); //pour les ranger par ordre bien METTRE LE get() à la fin source: https://laravel.com/docs/9.x/eloquent#retrieving-models
+                $posts = Post::orderBy('id')->get(); //pour les ranger par ordre bien METTRE LE get() à la fin source: https://laravel.com/docs/9.x/eloquent#retrieving-models
                 //pour voir ce que nous retourne $posts
                 //dd($posts);
             //pour update des données source: https://laravel.com/docs/9.x/eloquent#retrieving-models

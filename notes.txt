@@ -16,3 +16,6 @@ eloquent ORM : https://www.youtube.com/watch?v=rDsbDrMPMh0
 relation one to many (pour les commentaires par exemple) : https://www.youtube.com/watch?v=RoGjgghMHjU
 https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
 
+relation many to many : https://www.youtube.com/watch?v=9aUvEgY6N_I 
+
+requête HTTP : https://www.youtube.com/watch?v=jbQtuVZu4gQ
