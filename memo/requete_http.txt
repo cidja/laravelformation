@@ -1,0 +1,15 @@
+pour récupérer des infos 
+dans PostController.php
+public function store(Request $request)
+    { //l'objet Request va permettre d'indiquer à laravel de récupérer toute la requête récupére les informations passé en http https://youtu.be/rDsbDrMPMh0?t=1804
+       
+        dd($request->input('title'));
+
+pour passer un paramètre en URL il faut :
+    Route::post('/posts/create/{name}', [PostController::class, 'store'])->name('posts.store');
+    il faut le stipuler dans les arguements de la fonction 
+    PostController
+        public function store(Request $request, $name){
+          dd($name)  //ça récupérera name
+          // https://youtu.be/jbQtuVZu4gQ?t=680
+        }

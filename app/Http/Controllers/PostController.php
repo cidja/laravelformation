@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
         {
-           
+            
             //on utilise un model avec eloquent maintenant le 27.5.22
                 $posts = Post::orderBy('id')->get(); //pour les ranger par ordre bien METTRE LE get() à la fin source: https://laravel.com/docs/9.x/eloquent#retrieving-models
                 //pour voir ce que nous retourne $posts
@@ -77,7 +77,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->save(); */
-
+        dd($request->input('title'));
         //pour que cette technique fonctionne il faut rajouter dans le model post.php  protected $fillable = ['title','content']; https://youtu.be/rDsbDrMPMh0?t=2383
         Post::create([
             'title' => $request->title,
