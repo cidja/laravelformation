@@ -1,0 +1,18 @@
+documentations :
+https://laravel.com/docs/9.x/
+https://carbon.nesbot.com (pour le formatage des dates)
+
+
+sources vidéo youtube :
+introduction : https://www.youtube.com/watch?v=EaSgftRyvAM
+routing de base: https://www.youtube.com/watch?v=r5uBlY_ltPY
+les controleurs : https://www.youtube.com/watch?v=QzfMDDbEVi8&t=5s
+Les vues avec blade : https://www.youtube.com/watch?v=2bB0xKpNZa8&t
+compiler les assets : https://www.youtube.com/watch?v=2EauTXU0KGY&t=1s
+base de données et migreations : https://www.youtube.com/watch?v=yNL_FGty3ek
+les factories : https://www.youtube.com/watch?v=KYZp-orzVuM
+eloquent ORM : https://www.youtube.com/watch?v=rDsbDrMPMh0
+
+relation one to many (pour les commentaires par exemple) : https://www.youtube.com/watch?v=RoGjgghMHjU
+https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
+

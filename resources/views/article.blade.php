@@ -6,7 +6,8 @@
 <h1>{{ $post->content }}</h1>
 
 <hr>
-@forelse($post->comments as $comment )
+    {{-- forelse sert comme foreach sauf que forelse permet de mettre une condition si rien source: https://www.youtube.com/watch?v=RoGjgghMHjU --}}
+    @forelse($post->comments as $comment )
     <div> {{ $comment->content }} | crée le {{ $comment->created_at->locale('fr')->isoFormat('dddd, Do MMMM YYYY à h:mm'); }}</div>    
     @empty
     <div>Aucun commentaire pour ce post</div>
