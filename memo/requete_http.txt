@@ -13,3 +13,20 @@ pour passer un paramètre en URL il faut :
           dd($name)  //ça récupérera name
           // https://youtu.be/jbQtuVZu4gQ?t=680
         }
+
+
+public function store(Request $request)
+    { //l'objet Request va permettre d'indiquer à laravel de récupérer toute la requête récupére les informations passé en http https://youtu.be/rDsbDrMPMh0?t=1804
+        //dd($request->title); va afficher l'élément title de $request
+        //dd($request->path()); va afficher l'élement path()
+        //dd($request->routeIs('posts.store'));  pour vérifier la route
+//Pour voir les l'objet request https://laravel.com/docs/9.x/requests#main-content
+       
+//dd($request->all()); récupére toutes les infos du formulaire pour une infos en particulier dd($request->input('title));
+
+       dd($request->boolean('scales'), $request->boolean('horns')); // https://youtu.be/jbQtuVZu4gQ?t=1681 pour tester les chekcbox par exemple
+
+
+POUR LENVOI DE FICHIER IL FAUT TRES IMPORTANT :
+<form method="POST" action="{{ route('posts.store')}} " enctype="multipart/form-data">
+Pour enregistrer le fichier ont fait : $request->photo->storeAs('images', 'filename.jpg');

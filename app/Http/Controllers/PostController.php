@@ -72,12 +72,29 @@ class PostController extends Controller
 
     public function store(Request $request)
     { //l'objet Request va permettre d'indiquer à laravel de récupérer toute la requête récupére les informations passé en http https://youtu.be/rDsbDrMPMh0?t=1804
-        //dd($request->title); //va afficher l'élément title de $request
+        //dd($request->title); va afficher l'élément title de $request
+        //dd($request->path()); va afficher l'élement path()
+        //dd($request->routeIs('posts.store'));  pour vérifier la route
+//Pour voir les l'objet request https://laravel.com/docs/9.x/requests#main-content
+       //dd($request->boolean('scales'), $request->boolean('horns'));
+/* récupérer uniquement 
+        dd($request->only(['_token','title']));
+tous sauf
+        dd($request->except(['_token']));
+ */
+
+ //dd($request->file('avatar')); pour récupérer le fichier voir documentation pour plus d'informations
+ //dd($request->file('avatar')->store('avatar')); pour storer le fichier dans storage/avatar
+//dd($request->all()); récupére toutes les infos du formulaire pour une infos en particulier dd($request->input('title));
+        
         /* $post = new Post();
         $post->title = $request->title;
         $post->content = $request->content;
         $post->save(); */
-        dd($request->input('title'));
+
+        
+        
+        
         //pour que cette technique fonctionne il faut rajouter dans le model post.php  protected $fillable = ['title','content']; https://youtu.be/rDsbDrMPMh0?t=2383
         Post::create([
             'title' => $request->title,
