@@ -91,8 +91,8 @@ class PostController extends Controller
             $filename
         )); */
 
-        //source : https://youtu.be/fh18mHPA5E8?t=1563 enregistrer une image pour un post
-       
+        //source : https://youtu.be/fh18mHPA5E8?t=1563 enregistrer une image pour un post dans le dossier public
+       $filename = time() . '.' . $request->file('avatar')->extension();
 
          //pour que cette technique fonctionne il faut rajouter dans le model post.php  protected $fillable = ['title','content']; https://youtu.be/rDsbDrMPMh0?t=2383
          Post::create([
