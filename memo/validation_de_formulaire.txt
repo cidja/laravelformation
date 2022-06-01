@@ -1,0 +1,21 @@
+source: https://www.youtube.com/watch?v=YATQ9zttOuU
+https://laravel.com/docs/9.x/validation#main-content 
+
+Dans PostController
+$request->validate([
+            'title'     => 'required',
+            'content'   => 'required'
+        ]);
+
+On crée dans form.blade.php
+@if ($errors->any()) {{-- variable crée automatiquement après la vérification dans le post controller --}}
+    @foreach ($errors->all() as $error )
+        <div class="text-red-600"> {{ $error }} </div>
+        @endforeach
+    
+@endif
+juste avant le formulaire dès que error laravel créé une variable https://youtu.be/YATQ9zttOuU?t=338 
+
+
+php artisan make:rule Uppercase
+créé une ruls dans app/rules

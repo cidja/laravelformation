@@ -18,7 +18,7 @@ use App\Http\Controllers\PostController;
     return view('welcome');
 }); */
 Route::get('/', [PostController::class, 'index'])->name('welcome');
-Route::name('posts')->group(function(){
+Route::name('posts.')->group(function(){
     Route::get('/posts/create', [PostController::class, 'create'])->name('create'); //permet de créer un post
     Route::post('/posts/create', [PostController::class, 'store'])->name('store'); //route post qui va avec form.blade.php permet de créer un post
     Route::get('/posts/{id}', [PostController::class, 'show'])->whereNumber('id')->name('show'); //permet de vérifier si bien un nombre

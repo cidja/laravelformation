@@ -1,0 +1,26 @@
+source: https://www.youtube.com/watch?v=fh18mHPA5E8&list=PLeeuvNW2FHVj4vHJRj9UDeDsXshHlnHJk&index=17
+doc: https://laravel.com/docs/9.x/filesystem#file-uploads
+tout se trouve dans config/filesystems.php
+
+Pour écrire PostController.php
+
+ Storage::disk('local')->put('example.txt', 'Mon contenu du test');
+        die();
+
+
+Storage::disk('local')->put('avatars', $request->file('avatar'));
+    explications: on appel storage avec la fonction disk
+        on sélectionne le disk 'local' (défini dans config/filesystem)
+            on le put dans le dossier avatars
+                et on récupére le file avec le name avatar via la request
+
+
+RECUPERER UN contenu
+$name = Storage::disk('local')->put('avatars', $request->file('avatar'));
+Storage::get($name);
+
+pour choisir le nom du fichier :
+$request->file('avatar')->storeAs(
+            'avatartest',
+            'test.jpg'
+        ));

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Rules\Uppercase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -71,7 +73,35 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
-    { //l'objet Request va permettre d'indiquer à laravel de récupérer toute la requête récupére les informations passé en http https://youtu.be/rDsbDrMPMh0?t=1804
+    { 
+        //validation de données
+        $request->validate([ //source:https://laravel.com/docs/9.x/validation#validation-quickstart
+            'title'     => ['required','min:5','max:255','unique:posts', new Uppercase], // titre requis, min 5 maxi 255 caractères et unique dans la table posts new Uppercase fait référence à rule uppercase
+            'content'   => ['required', 'min:50' ] 
+        ]);
+        //UPLOAD DE FICHIERS SOURCE: https://youtu.be/fh18mHPA5E8?t=1474 
+        //$name = Storage::disk('local')->put('avatars', $request->file('avatar'));
+        //dd($name); //retourne le chemin relatif de l'image que nous pourrions enregistrer en base de données par la suite
+
+       /* pour modifier encore plus le filename
+        $filename = time() . '.' . $request->avatar->extension();
+
+        dd($request->file('avatar')->storeAs(
+            'avatartest',
+            $filename
+        )); */
+
+        //source : https://youtu.be/fh18mHPA5E8?t=1563 enregistrer une image pour un post
+       
+
+         //pour que cette technique fonctionne il faut rajouter dans le model post.php  protected $fillable = ['title','content']; https://youtu.be/rDsbDrMPMh0?t=2383
+         Post::create([
+            'title' => $request->title,
+            'content'   => $request->content
+        ]);
+
+        dd("post crée");
+        //l'objet Request va permettre d'indiquer à laravel de récupérer toute la requête récupére les informations passé en http https://youtu.be/rDsbDrMPMh0?t=1804
         //dd($request->title); va afficher l'élément title de $request
         //dd($request->path()); va afficher l'élement path()
         //dd($request->routeIs('posts.store'));  pour vérifier la route
@@ -82,26 +112,17 @@ class PostController extends Controller
 tous sauf
         dd($request->except(['_token']));
  */
-
- //dd($request->file('avatar')); pour récupérer le fichier voir documentation pour plus d'informations
+//dd($request->file('avatar')); pour récupérer le fichier voir documentation pour plus d'informations
  //dd($request->file('avatar')->store('avatar')); pour storer le fichier dans storage/avatar
-//dd($request->all()); récupére toutes les infos du formulaire pour une infos en particulier dd($request->input('title));
-        
+//dd($request->all()); récupére toutes les infos du formulaire pour une infos en particulier dd($request->input('title));   
         /* $post = new Post();
         $post->title = $request->title;
         $post->content = $request->content;
         $post->save(); */
-
+    
         
         
-        
-        //pour que cette technique fonctionne il faut rajouter dans le model post.php  protected $fillable = ['title','content']; https://youtu.be/rDsbDrMPMh0?t=2383
-        Post::create([
-            'title' => $request->title,
-            'content'   => $request->content
-        ]);
-
-        dd("post crée");
+       
 
     }
 

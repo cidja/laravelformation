@@ -19,3 +19,7 @@ https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
 relation many to many : https://www.youtube.com/watch?v=9aUvEgY6N_I 
 
 requête HTTP : https://www.youtube.com/watch?v=jbQtuVZu4gQ
+
+Validation de formulaire : https://www.youtube.com/watch?v=YATQ9zttOuU 
+
+upload de fichiers : https://www.youtube.com/watch?v=fh18mHPA5E8&list=PLeeuvNW2FHVj4vHJRj9UDeDsXshHlnHJk&index=17
