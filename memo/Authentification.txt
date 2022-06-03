@@ -1,0 +1,44 @@
+source : https://www.youtube.com/watch?v=u6AyTcQZT28&list=PLeeuvNW2FHVj4vHJRj9UDeDsXshHlnHJk&index=18
+
+il faut d'abord avoir un projet VIERGE
+    composer create-project laravel/laravel myproject
+        php artisan migrate
+            
+        composer require laravel/breeze --dev
+        php artisan breeze:install
+ 
+        npm install
+        npm run dev
+        php artisan migrate
+
+    pour créer des vues ou il faudrait être connecté :
+ 
+ 
+    class TestController extends Controller
+{
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('bar'); //avec construct obligé d'être connecté pour accéder aux vue foo mais pas bar car mis dans except
+    }
+    public function foo()
+    {
+        return view('test.foo');
+    }
+    public function bar()
+    {
+        return view('test.bar');
+    }
+}
+
+On peut utiliser aussi avec blade
+@auth
+
+//tout ce qui se trouve entre ces balises sera affiché uniquement si l'utilisateur est connecté
+
+@endauth
+
+inverse pour si on est invité
+@guest
+
+@endguest

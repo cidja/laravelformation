@@ -1,0 +1,30 @@
+source: https://www.youtube.com/watch?v=7Q1Fh_g7wQk&list=PLeeuvNW2FHVj4vHJRj9UDeDsXshHlnHJk&index=19
+docs: https://laravel.com/docs/9.x/authorization#writing-gates
+
+on crée une migration : 
+php artisan make:migration add_admin_column_to_users_table --table=users
+//pour rajouter la column admin
+    dans la migration :
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('admin')->default(0); //par défaut pas admin
+        });
+
+dans : app/Providers/AuthServiceProvider.php
+public function boot()
+    {
+        $this->registerPolicies();
+    // définition en dessous d'une gate qui s'appel access-admin et qui vérifie le user 
+        Gate::define('access-admin', function (User $user) {
+            return $user->admin; //pour pouvoir avoir accès a access-admin user doit avoir admin à 1
+        });
+    }
+
+ensuite dans le controller :
+    public function foo()
+    {
+         if(! Gate::allows('access-admin')){ //si access admin pas 1 alors on renvoi 403 (forbidden)
+           abort('403');
+        } 
+        
+        return view('test.foo');
+    }
